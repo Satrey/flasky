@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
     <p>Current date and time: {{ moment(current_time).format('MMMM Do YYYY, h:mm:ss a') }}.</p>
@@ -25,5 +26,15 @@
             </div>
         </div>
       </div>
+  </div>
+<div>Text</div>
+<div class="container m-4">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 bg-primary">{{ wtf.quick_form(form) }}</div>
+    </div>
+</div>
+  <div class="container">
+    This is a footer block
   </div>
 {% endblock %}
