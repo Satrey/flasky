@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 
 {% block page_content %}
-    <h1 class="text-center align-middle">Block from index</h1>
+    <p>Current date and time: {{ moment(current_time).format('MMMM Do YYYY, h:mm:ss a') }}.</p>
+    <p>That was {{ current_time }}</p>
+{% endblock %}
+
+{% block page %}
+  <div class="container">
+      <div class="row bg-primary">
+        <div class="col-md-12">
+            <h1 class="text-center">Row 1</h1>
+        </div>
+      </div>
+      <div class="container">text</div>
+      <div class="row">
+        <div class="col-md-6 card">
+            <div class="card shadow">
+                <h1 class="text-center">Row 2 Col 1</h1>
+            </div>
+        </div>
+        <div class="col-md-6 bg-primary">
+            <div class="card shadow">
+                <h1 class="text-center">Row 2 Col 2</h1>
+            </div>
+        </div>
+      </div>
+  </div>
 {% endblock %}

@@ -1,9 +1,19 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+     type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
+     type="image/x-icon">
+    {{ moment.include_moment() }}
+    {{ moment.locale('ru') }}
+{% endblock %}
+
 {% block title %}Flasky{% endblock %}
 
 {% block navbar %}
-    <div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar navbar-inverse fixed" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle"
@@ -28,4 +38,13 @@
     <div class="container">
         {% block page_content %}{% endblock %}
     </div>
+    <div class="container">
+        {% block page %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    {{ super() }}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 {% endblock %}
